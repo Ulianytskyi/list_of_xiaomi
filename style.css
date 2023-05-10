@@ -31,8 +31,9 @@ td input[type="checkbox"]:not(:checked) {
   background-color: red;
 }
 
-button {
+#check-btn, #hide-checkboxes-btn {
   padding: 10px;
+  margin-bottom: 10px;
   font-size: 16px;
   background-color: #4CAF50;
   color: white;
@@ -41,6 +42,23 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+#check-btn:hover, #hide-checkboxes-btn:hover {
   background-color: #3e8e41;
+}
+
+#save-checkboxes-btn, #sort-asc, #sort-desc {
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background-color: whitesmoke;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#save-checkboxes-btn:hover,
+#sort-asc:hover,
+#sort-desc:hover {
+  background-color: grey;
+  color: white;
 }

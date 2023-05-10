@@ -1,29 +1,72 @@
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
 const hideCheckboxesBtn = document.getElementById("hide-checkboxes-btn");
+const checkcheck = document.getElementById("check-btn");
 
-hideCheckboxesBtn.addEventListener("click", () => {
-  const checkboxes = document.querySelectorAll("input[type='checkbox']");
-  checkboxes.forEach((checkbox) => {
-    checkbox.style.display = checkbox.style.display === "none" ? "block" : "none";
-  });
-});
-
-
-checkboxes.forEach(checkbox => {
-  const cell = checkbox.parentNode;
-  if (checkbox.checked) {
-    cell.style.backgroundColor = 'blue';
-  } else {
-    cell.style.backgroundColor = 'red';
-  }
-
-  checkbox.addEventListener('change', () => {
+checkcheck.addEventListener("click", () => {
+  checkboxes.forEach(checkbox => {
+    const cell = checkbox.parentNode;
     if (checkbox.checked) {
       cell.style.backgroundColor = 'blue';
     } else {
       cell.style.backgroundColor = 'red';
     }
+
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        cell.style.backgroundColor = 'blue';
+      } else {
+        cell.style.backgroundColor = 'red';
+      }
+    });
+  });
+  
+    function countChecked(columnIndex) {
+    const columnCells = document.querySelectorAll(`td:nth-child(${columnIndex})`);
+    let checkedCount = 0;
+    
+    columnCells.forEach((cell) => {
+    const checkbox = cell.querySelector('input[type="checkbox"]');
+    if (checkbox && checkbox.checked) {
+      checkedCount++;
+    }
+    });
+    
+    return checkedCount;
+    }
+    
+    // Отримуємо посилання на елементи з ID "results1", "results2", "results3"
+    const results1 = document.getElementById("results1");
+    const results2 = document.getElementById("results2");
+    const results3 = document.getElementById("results3");
+    
+    // Виводимо результати відповідно до номерів колонок
+    results1.innerHTML = `Телефонів на площі Волі, 1: ${countChecked(2)}`;
+    results2.innerHTML = `Телефонів в F5 Техномережа: ${countChecked(3)}`;
+    results3.innerHTML = `Телефонів на автовокзалі: ${countChecked(4)}`;
+
+});
+
+// checkboxes.forEach(checkbox => {
+//   const cell = checkbox.parentNode;
+//   if (checkbox.checked) {
+//     cell.style.backgroundColor = 'blue';
+//   } else {
+//     cell.style.backgroundColor = 'red';
+//   }
+
+//   checkbox.addEventListener('change', () => {
+//     if (checkbox.checked) {
+//       cell.style.backgroundColor = 'blue';
+//     } else {
+//       cell.style.backgroundColor = 'red';
+//     }
+//   });
+// });
+
+hideCheckboxesBtn.addEventListener("click", () => {
+  const checkboxes = document.querySelectorAll("input[type='checkbox']");
+  checkboxes.forEach((checkbox) => {
+    checkbox.style.display = checkbox.style.display === "none" ? "block" : "none";
   });
 });
 
@@ -86,3 +129,10 @@ function saveCheckboxes() {
         checkboxes[i].checked = states[i];
       }
     }
+
+const currentDate = new Date();
+const options = { year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = currentDate.toLocaleDateString(undefined, options);
+
+const dateElement = document.getElementById('currentDate');
+dateElement.textContent = 'Список Xiaomi: ' + formattedDate;

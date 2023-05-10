@@ -10,6 +10,12 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<p id="currentDate"></p>
+
+<!-- <button id="check-btn">Перевірити</button>
+<button id="hide-checkboxes-btn">Приховати чекбокси</button>
+<br> -->
+
 <table>
   <thead>
     <tr>
@@ -173,7 +179,7 @@
 	   <td><input type="checkbox"></td>
 	   <td><input type="checkbox"></td>
 	   <td><input type="checkbox"></td>
-	   <th>6495</th>
+	   <th>6795</th>
 	</tr>
 	<tr>
 	   <td>Redmi 10C (4/128) Mint Green</td>
@@ -345,11 +351,17 @@
 	</tr>
   </tbody>
 </table>
-<br><br>
 
-<button id="save-checkboxes-btn" onclick="saveCheckboxes()">Save checkboxes</button>
-<br><br>
+<br>
+<div id="results1"></div>
+<div id="results2"></div>
+<div id="results3"></div>
+<br>
+
+<button id="check-btn">Перевірити</button>
 <button id="hide-checkboxes-btn">Приховати чекбокси</button>
+<br><br>
+<button id="save-checkboxes-btn" onclick="saveCheckboxes()">Зберегти стан списка</button>
 <br>
 <br>
 <button id="sort-asc">Сортувати за зростанням</button>
